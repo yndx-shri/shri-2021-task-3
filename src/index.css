@@ -1,0 +1,108 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.player-container {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.player {
+    display: flex;
+    flex-direction: row;
+    transition: all ease-in-out 0.3s;
+}
+
+.progress-container {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+}
+
+.slide-progress {
+    flex-grow: 1;
+    margin: 2px;
+    background-clip: content-box;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.slide-progress-value {
+    height: 4;
+    background-color: #F4B000;
+    transition: transform 0.1s linear;
+    transform-origin: left top;
+}
+
+.frame {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    border: none;
+}
+
+.actions {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+.button {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.prev {
+    transform: rotate(180deg);
+}
+
+@media (max-height: 750px) { 
+    .prev {
+        display: none;
+    }
+}
+
+.theme_light .button {
+    color: #BFBFBF;
+}
+
+.theme_light .button:hover {
+    color: #F4B000;
+}
+
+.theme_light .slide-progress {
+    background: #bfbfbf88;
+}
+
+.theme_light .set-light {
+    display: none;
+}
+
+.theme_dark .button {
+    color: #918F8A;
+}
+
+.theme_dark .button:hover {
+    color: #F4B000;
+}
+
+.theme_dark .slide-progress {
+    background: #918F8A;
+}
+
+.theme_dark .set-dark {
+    display: none;
+}
