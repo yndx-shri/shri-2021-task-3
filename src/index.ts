@@ -54,6 +54,6 @@ createThemeSelector(state$)
 
 document.querySelector<HTMLDivElement>('.set-light').addEventListener('click', () => dispatch(actionSetTheme('light')));
 document.querySelector<HTMLDivElement>('.set-dark').addEventListener('click', () => dispatch(actionSetTheme('dark')));
-document.querySelector<HTMLDivElement>('.prev').addEventListener('click', () => dispatch(actionPrev()));
-document.querySelector<HTMLDivElement>('.next').addEventListener('click', () => dispatch(actionPrev()));
+document.querySelector<HTMLDivElement>('.go-next').addEventListener('click', () => dispatch(actionNext()));
+document.querySelector<HTMLDivElement>('.go-prev').addEventListener('click', () => dispatch(actionPrev()));
 document.querySelector<HTMLDivElement>('.restart').addEventListener('click', () => dispatch(actionRestart()));

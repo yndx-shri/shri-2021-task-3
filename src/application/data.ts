@@ -20,16 +20,21 @@ function assertUnrevoked(state: any) {
 export const data = produce((draft: Draft<State>, action: Action) => {
     switch (action.type) {
         case 'timer':
-            if (!draft.pause) {
+            console.log("timer")
+            if (draft.pause) {
                 draft.progress += INTERVAL;
             }
             break;
         case 'prev':
+            console.log(action)
             draft.pause = false;
             draft.progress = 0;
             draft.index = Math.max(draft.index - 1, 0);
             break;
         case 'next':
+            console.log("next")
+            console.log(action)
+            console.log(draft)
             if (draft.index + 1 < draft.stories.length) {
                 draft.index++;
                 draft.progress = 0;
@@ -39,12 +44,15 @@ export const data = produce((draft: Draft<State>, action: Action) => {
 
             break;
         case 'restart':
+            console.log("restart")
+            console.log(action)
             draft.pause = false;
             draft.progress = 0;
             draft.index = 0;
             break;
         case 'update':
             const { alias, data } = action.data;
+            console.log("update")
 
             if (alias) {
                 draft.stories[0].alias = alias;
@@ -56,6 +64,8 @@ export const data = produce((draft: Draft<State>, action: Action) => {
 
             break;
         case 'theme':
+            console.log("theme")
+
             draft.theme = action.theme;
             break;
     }
