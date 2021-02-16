@@ -15,9 +15,11 @@ export const actionTimer = () => ({ type: 'timer' } as const);
 export const actionMessage = (action: string, params: string) => ({ type: 'message', action, params } as const);
 
 export type Action = 
+// как это работаает. Первый раз такое вижу
     | ReturnType<typeof actionNext> 
     | ReturnType<typeof actionPrev> 
     | ReturnType<typeof actionRestart> 
+    | ReturnType<typeof actionUpdate> 
     | ReturnType<typeof actionMessage> 
     | ReturnType<typeof actionSetTheme> 
     | ReturnType<typeof actionTimer>;
