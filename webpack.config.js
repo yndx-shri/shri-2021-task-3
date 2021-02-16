@@ -22,7 +22,7 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
+                use: ['ts-loader'],
                 exclude: /node_modules/,
             },
             {
@@ -32,7 +32,7 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: ['.ts', ".tsx",'.js'],
     },
     output: {
         filename: '[name].[contenthash:8].js',
