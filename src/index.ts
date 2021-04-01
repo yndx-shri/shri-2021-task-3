@@ -16,7 +16,7 @@ import './index.css';
 import { stories } from './data';
 createState(stories);
 const [dispatch, state$] = createState(stories);
- 
+
 
 function onMessage({ data }: MessageEvent<XMessage>) {
     if (data.type === 'message@ACTION') {
