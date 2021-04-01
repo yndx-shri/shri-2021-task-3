@@ -1,5 +1,6 @@
-import { Subject, BehaviorSubject, Observable } from 'rxjs';
-import { map, withLatestFrom } from 'rxjs/operators';
+import { Subject, BehaviorSubject, Observable, } from "rxjs";
+import { map, withLatestFrom } from "rxjs/operators";
+
 import { Action } from './actions';
 import { createEffects } from './effects';
 import { data } from './data';
