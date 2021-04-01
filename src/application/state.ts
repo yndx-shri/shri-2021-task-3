@@ -27,6 +27,6 @@ export function createState(stories: Slide[]): [(a: Action) => void, Observable<
     ).subscribe(state$);
 
     const dispatch = (action: Action) => actions$.next(action);
-
+console.log(state$)
     return [dispatch, state$];
 }

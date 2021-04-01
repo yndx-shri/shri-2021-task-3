@@ -21,7 +21,7 @@ export const data = produce((draft: Draft<State>, action: Action) => {
     switch (action.type) {
         case 'timer':
             console.log("timer")
-            if (draft.pause) {
+            if (!draft.pause) {
                 draft.progress += INTERVAL;
             }
             break;
@@ -96,5 +96,6 @@ export function proxyProperty(
             },
         };
     }
+    console.log(desc)
     return desc;
 }
