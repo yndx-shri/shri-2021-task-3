@@ -1,4 +1,4 @@
-import produce, { Draft } from 'immer';
+import { produce, Draft } from "immer"
 
 import { Action } from './actions';
 import { descriptors, DRAFT_STATE, errors, INTERVAL, State } from './types';
