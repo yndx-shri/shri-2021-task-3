@@ -26,15 +26,14 @@ export const data = produce((draft: Draft<State>, action: Action) => {
             }
             break;
         case 'prev':
-            console.log(action)
+            console.log(action.type)
             draft.pause = false;
             draft.progress = 0;
             draft.index = Math.max(draft.index - 1, 0);
             break;
         case 'next':
-            console.log("next")
-            console.log(action)
-            console.log(draft)
+            console.log(action.type)
+
             if (draft.index + 1 < draft.stories.length) {
                 draft.index++;
                 draft.progress = 0;
@@ -45,7 +44,7 @@ export const data = produce((draft: Draft<State>, action: Action) => {
             break;
         case 'restart':
             console.log("restart")
-            console.log(action)
+            console.log(action.type)
             draft.pause = false;
             draft.progress = 0;
             draft.index = 0;
@@ -96,6 +95,5 @@ export function proxyProperty(
             },
         };
     }
-    console.log(desc)
     return desc;
 }

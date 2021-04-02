@@ -20,14 +20,12 @@ export function createState(stories: Slide[]): [(a: Action) => void, Observable<
 
     const state$ = new BehaviorSubject({ ...DEFAULT_STATE, stories });
 
-    createEffects(actions$, state$).subscribe(actions$);
+      createEffects(actions$, state$).subscribe(actions$);
 
     actions$.pipe(
         withLatestFrom(state$),
         map(([a, s]) => data(s, a)),
     ).subscribe(state$);
-
     const dispatch = (action: Action) => actions$.next(action);
-    console.log(state$)
     return [dispatch, state$];
 }

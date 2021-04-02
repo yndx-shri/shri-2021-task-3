@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const mode = "development";
 module.exports = {
     entry: {
         index: './src/index.ts',
@@ -11,6 +11,7 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     devServer: { contentBase: './dist' },
+    mode,
     plugins: [
         new CleanWebpackPlugin(), 
         new CopyPlugin({ patterns: ['public'] }),
