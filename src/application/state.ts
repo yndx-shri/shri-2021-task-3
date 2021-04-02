@@ -1,5 +1,6 @@
-import { Subject, BehaviorSubject, Observable } from 'rxjs';
-import { map, withLatestFrom } from 'rxjs/operators';
+import { Subject, BehaviorSubject, Observable, } from "rxjs";
+import { map, withLatestFrom } from "rxjs/operators";
+
 import { Action } from './actions';
 import { createEffects } from './effects';
 import { data } from './data';
@@ -19,14 +20,12 @@ export function createState(stories: Slide[]): [(a: Action) => void, Observable<
 
     const state$ = new BehaviorSubject({ ...DEFAULT_STATE, stories });
 
-    createEffects(actions$, state$).subscribe(actions$);
+      createEffects(actions$, state$).subscribe(actions$);
 
     actions$.pipe(
-        withLatestFrom(state$), 
+        withLatestFrom(state$),
         map(([a, s]) => data(s, a)),
     ).subscribe(state$);
-
     const dispatch = (action: Action) => actions$.next(action);
-
     return [dispatch, state$];
 }

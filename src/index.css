@@ -20,6 +20,7 @@ body {
 
 .progress-container {
     position: absolute;
+    height: 10px;
     top: 2px;
     left: 2px;
     right: 2px;
@@ -69,7 +70,7 @@ body {
     transform: rotate(180deg);
 }
 
-@media (max-height: 750px) { 
+@media (max-height: 750px) {
     .prev {
         display: none;
     }
@@ -87,9 +88,7 @@ body {
     background: #bfbfbf88;
 }
 
-.theme_light .set-light {
-    display: none;
-}
+
 
 .theme_dark .button {
     color: #918F8A;
@@ -104,5 +103,9 @@ body {
 }
 
 .theme_dark .set-dark {
+    display: none;
+}
+
+.theme_light .set-light {
     display: none;
 }

@@ -1,4 +1,4 @@
-import produce, { Draft } from 'immer';
+import { produce, Draft } from "immer"
 
 import { Action } from './actions';
 import { descriptors, DRAFT_STATE, errors, INTERVAL, State } from './types';
@@ -20,16 +20,20 @@ function assertUnrevoked(state: any) {
 export const data = produce((draft: Draft<State>, action: Action) => {
     switch (action.type) {
         case 'timer':
+            // console.log("timer")
             if (!draft.pause) {
                 draft.progress += INTERVAL;
             }
             break;
         case 'prev':
+            // console.log(action.type)
             draft.pause = false;
             draft.progress = 0;
             draft.index = Math.max(draft.index - 1, 0);
             break;
         case 'next':
+            // console.log(action.type)
+
             if (draft.index + 1 < draft.stories.length) {
                 draft.index++;
                 draft.progress = 0;
@@ -39,12 +43,15 @@ export const data = produce((draft: Draft<State>, action: Action) => {
 
             break;
         case 'restart':
+            // console.log("restart")
+            // console.log(action.type)
             draft.pause = false;
             draft.progress = 0;
             draft.index = 0;
             break;
         case 'update':
             const { alias, data } = action.data;
+            // console.log("update")
 
             if (alias) {
                 draft.stories[0].alias = alias;

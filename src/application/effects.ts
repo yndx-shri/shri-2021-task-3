@@ -24,6 +24,7 @@ export function createEffects(
     const messageEffect$ = actions$.pipe(
         ofType<ReturnType<typeof actionMessage>>('message'),
         mergeMap(a => {
+            console.log(a.action)
             switch (a.action) {
                 case 'go-prev':
                     return of(actionPrev());

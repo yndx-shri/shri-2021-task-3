@@ -14,8 +14,9 @@ import { initIframe, initProgress, sendMessage, setElementTheme, setScale } from
 import './index.css';
 
 import { stories } from './data';
-
+createState(stories);
 const [dispatch, state$] = createState(stories);
+
 
 function onMessage({ data }: MessageEvent<XMessage>) {
     if (data.type === 'message@ACTION') {
@@ -51,9 +52,9 @@ createThemeSelector(state$)
         setElementTheme(document.body, theme);
         frames.forEach(iframe => sendMessage(iframe, messageSetTheme(theme)));
     })
-
+ 
 document.querySelector<HTMLDivElement>('.set-light').addEventListener('click', () => dispatch(actionSetTheme('light')));
 document.querySelector<HTMLDivElement>('.set-dark').addEventListener('click', () => dispatch(actionSetTheme('dark')));
+document.querySelector<HTMLDivElement>('.next').addEventListener('click', () => dispatch(actionNext()));
 document.querySelector<HTMLDivElement>('.prev').addEventListener('click', () => dispatch(actionPrev()));
-document.querySelector<HTMLDivElement>('.next').addEventListener('click', () => dispatch(actionPrev()));
 document.querySelector<HTMLDivElement>('.restart').addEventListener('click', () => dispatch(actionRestart()));
