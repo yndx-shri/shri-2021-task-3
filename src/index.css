@@ -20,6 +20,7 @@ body {
 
 .progress-container {
     position: absolute;
+    height: 10px;
     top: 2px;
     left: 2px;
     right: 2px;
