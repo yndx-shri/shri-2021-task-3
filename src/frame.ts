@@ -2,8 +2,8 @@ import { messageAction, XMessage } from './messages';
 import { setElementTheme } from './application/view';
 import './frame.css';
 
-interface ExtendedWindow extends Window { 
-    renderTemplate: (alias: string, data: object) => string 
+interface ExtendedWindow extends Window {
+    renderTemplate: (alias: string, data: object) => string
 }
 
 declare var window: ExtendedWindow;
@@ -14,7 +14,7 @@ function ready() {
 
 function sendMessage(msg: XMessage) {
     window.postMessage(msg, '*');
-} 
+}
 
 function receiveMessage({ data }: MessageEvent<XMessage>) {
     // console.log(data)
@@ -29,12 +29,13 @@ function receiveMessage({ data }: MessageEvent<XMessage>) {
 function onDocumentClick(e: MouseEvent) {
     if (e.target instanceof HTMLElement) {
         let target = e.target;
-        while(target && !target.dataset.action) {
+        console.log(target.dataset)
+        while (target && !target.dataset.action) {
             target = target.parentElement;
         }
-
-            const { action, params } = target.dataset;
-            sendMessage(messageAction(action, params));
+        
+        const { action, params } = target.dataset;
+        sendMessage(messageAction(action, params));
     }
 }
 
